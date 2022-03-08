@@ -52,13 +52,15 @@ call plug#begin("~/.vim/plugged")
   Plug 'dracula/vim' " ColorScheme
   Plug 'EdenEast/nightfox.nvim' " ColorScheme
   Plug 'ryanoasis/vim-devicons' " font awesome dev icons
-  Plug 'SirVer/ultisnips'  " code snippets
+"  Plug 'SirVer/ultisnips'  " code snippets
   Plug 'honza/vim-snippets' " code snippets
   Plug 'scrooloose/nerdtree' " filetree
   Plug 'preservim/nerdcommenter' " Not sure
   Plug 'mhinz/vim-startify'   " startmenu its pretty
   Plug 'neoclide/coc.nvim', {'branch': 'release'} " code completion
   Plug 'parkr/vim-jekyll' " not sure
+
+  Plug 'vim-airline/vim-airline'
 
   " This is a requirement, which implements some useful window management
   "   items for neovim
@@ -107,6 +109,12 @@ nnoremap gf :vert winc f<cr>
 
 " copies pwd to clipboard: command yd
 :nnoremap <silent> yd :let @+=expand('%:p:h')<CR>
+
+" Telescope keybinds
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fh <cmd>Telescope current_buffer_fuzzy_find<cr>
+
 
 " Vim jump to the last position when reopening a file
 if has("autocmd")
