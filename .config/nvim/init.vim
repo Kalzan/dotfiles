@@ -105,10 +105,10 @@ nnoremap <C-l> <C-w>l
 nnoremap gf :vert winc f<cr>
 
 " copies filepath to clipboard by pressing yf
-:nnoremap <silent> yf :let @+=expand('%:p')<CR>
+:nnoremap <leader> yf :let @+=expand('%:p')<CR>
 
 " copies pwd to clipboard: command yd
-:nnoremap <silent> yd :let @+=expand('%:p:h')<CR>
+:nnoremap <leader> yd :let @+=expand('%:p:h')<CR>
 
 " Telescope keybinds
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
