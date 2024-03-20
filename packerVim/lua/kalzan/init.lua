@@ -1,4 +1,3 @@
-vim.g.mapleader = " "
-require("kalzan.lazy")
+require("kalzan.packer")
 require("kalzan.remap")
 require("kalzan.set")

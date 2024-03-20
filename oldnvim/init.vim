@@ -1,5 +1,5 @@
 "set nocompatible 		" disable compatibility to old vi
-set exrc                        " source vimrc if a folder/file had one in it
+"set exrc                        " source vimrc if a folder/file had one in it
 set showmatch			" show matching
 set ignorecase			" case insensitive search
 set noerrorbells                " No noises
