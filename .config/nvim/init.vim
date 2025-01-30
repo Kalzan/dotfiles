@@ -51,16 +51,22 @@ call plug#begin("~/.vim/plugged")
   " plugins
   Plug 'dracula/vim' " ColorScheme
   Plug 'EdenEast/nightfox.nvim' " ColorScheme
+  Plug 'haishanh/night-owl.vim' " ColorScheme
   Plug 'ryanoasis/vim-devicons' " font awesome dev icons
-"  Plug 'SirVer/ultisnips'  " code snippets
-  Plug 'honza/vim-snippets' " code snippets
   Plug 'scrooloose/nerdtree' " filetree
-  Plug 'preservim/nerdcommenter' " Not sure
   Plug 'mhinz/vim-startify'   " startmenu its pretty
-  Plug 'neoclide/coc.nvim', {'branch': 'release'} " code completion
-  Plug 'parkr/vim-jekyll' " not sure
 
   Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
+
+  "code complete section
+  Plug 'williamboman/mason.nvim'
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'williamboman/mason-lspconfig.nvim'
+  Plug 'mfussenegger/nvim-dap'
+  Plug 'rcarriga/nvim-dap-ui'
+  Plug 'mfussenegger/nvim-lint'
+  Plug 'mhartington/formatter.nvim'
 
   " This is a requirement, which implements some useful window management
   "   items for neovim
@@ -75,7 +81,8 @@ if (has("termguicolors"))
  endif
  syntax enable
  "colorscheme evening
-colorscheme nightfox
+colorscheme night-owl
+let g:airline_theme='night_owl'
 
 
 let mapleader=" "
@@ -116,6 +123,12 @@ nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fh <cmd>Telescope current_buffer_fuzzy_find<cr>
 
 
+nnoremap <leader>sv :source $MYVIMRC<CR>
+
+lua << EOF
+  require("mason").setup()
+EOF
+
 " Vim jump to the last position when reopening a file
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
@@ -132,6 +145,5 @@ augroup Kal
   autocmd!
   autocmd BufWritePre * :call TrimWhitespace()
 augroup END
-
 
 
